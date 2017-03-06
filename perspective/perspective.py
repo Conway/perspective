@@ -2,7 +2,6 @@ import json
 import requests
 import warnings
 from utils import validate_language
-from exceptions import PerspectiveAPIException
 
 # allowed test types
 allowed = ["TOXICITY",
@@ -145,3 +144,6 @@ class Span(object):
 
     def __repr__(self):
         return "<({0}) {1}>".format(self.score, self.comment.text[self.begin:self.end])
+
+class PerspectiveAPIException(Exception):
+    pass
