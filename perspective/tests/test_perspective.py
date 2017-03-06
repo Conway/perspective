@@ -1,5 +1,17 @@
 import os
-from ..perspective import Perspective, allowed
+
+# source: http://stackoverflow.com/a/23386287/7090605
+import sys
+sys.path.append(
+    os.path.dirname(
+        os.path.dirname(
+            os.path.abspath(__file__)
+        )
+    )
+)
+
+
+from perspective import Perspective, allowed
 import random
 import string
 import unittest
@@ -30,7 +42,7 @@ class PerspectiveTests(unittest.TestCase):
 
     def test_invalid_test_type(self):
         with self.assertRaises(ValueError):
-            self.p.score(generate_text(), texts=0)
+            self.p.score(generate_text(), tests=0)
 
     def test_comment(self):
         for x in range(10):
@@ -39,10 +51,10 @@ class PerspectiveTests(unittest.TestCase):
             self.assertTrue(0 <= comment[test].score <= 1)
             for attr in comment[test].spans:
                 self.assertTrue(0 <= attr.score <= 1)
-                self.assertTrue(str(attr) in comment)
+                self.assertTrue(str(attr) in comment.text)
 
 if __name__ == '__main__':
-    if __package__ is None:
-        from os import sys, path
-        sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    #if __package__ is None:
+    #    from os import sys, path
+    #    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
     unittest.main()
