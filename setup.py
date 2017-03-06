@@ -14,19 +14,20 @@ setup(
     url='https://github.com/conway/perspective',
     author='Jake Conway',
     author_email='jake.h.conway@gmail.com',
-    license='MIT',
+    license='UNLICENSE',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Topic :: Utilities',
-        'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Natural Language :: English'
+        'Natural Language :: English',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Topic :: Scientific/Engineering :: Artificial Intelligence'
     ],
-    keywords=['google', 'perspective api', 'perspective', 'natural language', 'anti-harassment'],
+    keywords=['google', 'perspective api', 'perspective', 'natural language', 'anti-harassment', 'google apis'],
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     install_requires=['requests']
 )
