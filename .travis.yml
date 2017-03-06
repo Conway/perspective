@@ -6,4 +6,6 @@ python:
   - "3.4"
 install:
   - pip setup.py install
-script: python perspective/tests/test_perspective.py
+script:
+  - export API_KEY=$API_KEY
+  - python perspective/tests/test_perspective.py
