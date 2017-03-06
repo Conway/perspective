@@ -1,5 +1,5 @@
 import os
-from perspective import Perspective, allowed
+from ..perspective import Perspective, allowed
 import random
 import string
 import unittest
@@ -42,4 +42,7 @@ class PerspectiveTests(unittest.TestCase):
                 self.assertTrue(str(attr) in comment)
 
 if __name__ == '__main__':
+    if __package__ is None:
+        from os import sys, path
+        sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
     unittest.main()
