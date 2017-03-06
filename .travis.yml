@@ -1,11 +1,10 @@
-sudo: false
 language: python
 python:
   - "3.2"
   - "3.3"
   - "3.4"
 install:
-  - pip setup.py install
+  - python setup.py install
 script:
   - export API_KEY=$API_KEY
   - python perspective/tests/test_perspective.py
