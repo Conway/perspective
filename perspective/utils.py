@@ -1,5 +1,8 @@
 import markdown
-from html.parser import HTMLParser
+try:
+    from html.parser import HTMLParser
+except ImportError:
+    from HTMLParser import HTMLParser
 
 def validate_language(language):
     # ISO 639-1 code validation
