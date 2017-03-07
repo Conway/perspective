@@ -1,3 +1,6 @@
+import markdown
+from html.parser import HTMLParser
+
 def validate_language(language):
     # ISO 639-1 code validation
     # language source: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
@@ -19,3 +22,24 @@ def validate_language(language):
              "tt", "tw", "ty", "ug", "uk", "ur", "uz", "ve", "vi", "vo", "wa",
              "wo", "xh", "yi", "yo", "za", "zh", "zu"]
     return language.lower() in codes
+
+
+def remove_html(text, md=False):
+    if md:
+        text = markdown.markdown(text)
+    # credit: stackoverflow
+    class MLStripper(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.reset()
+            self.strict = False
+            self.convert_charrefs= True
+            self.fed = []
+        def handle_data(self, d):
+            self.fed.append(d)
+        def get_data(self):
+            return ''.join(self.fed)
+
+    s = MLStripper()
+    s.feed(text)
+    return s.get_data()
