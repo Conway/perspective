@@ -33,13 +33,14 @@ class Perspective(object):
             for test in tests:
                 new_data[test] = {}
             tests = new_data
-        if text_type.lower() is not None:
+        if text_type:
             if text_type.lower() == "html":
                 text = remove_html(text)
             elif text_type.lower() == "md":
                 text = remove_html(text, md=True)
             else:
                 raise ValueError("{0} is not a valid text_type. Valid options are 'html' or 'md'".format(str(text_type)))
+
         for test in tests.keys():
             if test not in allowed:
                 raise ValueError("{0} is currently not accepted as a test.".format(str(test)))
