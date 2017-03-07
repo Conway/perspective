@@ -19,7 +19,8 @@ setup(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Topic :: Utilities',
-	'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 2',
+	    'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
@@ -31,5 +32,5 @@ setup(
     ],
     keywords=['google', 'perspective api', 'perspective', 'natural language', 'anti-harassment', 'google apis'],
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
-    install_requires=['requests']
+    install_requires=['requests', 'markdown']
 )
