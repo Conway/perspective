@@ -21,6 +21,7 @@ print("Toxicity score: " + comment["TOXICITY"].score)
 
 1. Full documentation
 2. Comment splitting for comments >3000 characters
-3. HTML stripping option (until the API supports this natively)
-4. Tests
-5. Python 2.6+ support
+4. Improve unittests
+5. Add support for context
+6. Format code to meet PEP-8
+7. Add support for "suggest score"
