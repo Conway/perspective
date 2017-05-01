@@ -1,12 +1,12 @@
-#perspective
+# perspective
 
 perspective is an API wrapper for Google's [Perspective API](http://www.perspectiveapi.com/)
 
-##Installation
+## Installation
 
 To install, use `pip install perspective`
 
-##Usage
+## Usage
 
 A simple example:
 
@@ -17,7 +17,7 @@ comment = p.score("This is a comment", tests=["TOXICITY"])
 print("Toxicity score: " + comment["TOXICITY"].score)
 ```
 
-##Todo
+## Todo
 
 1. Full documentation
 2. Comment splitting for comments >3000 characters
