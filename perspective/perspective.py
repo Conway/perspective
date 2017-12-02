@@ -5,6 +5,7 @@ from utils import validate_language, remove_html
 
 # allowed test types
 allowed = ["TOXICITY",
+           "SEVERE_TOXICITY",
            "TOXICITY_FAST",
            "ATTACK_ON_AUTHOR",
            "ATTACK_ON_COMMENTER",
@@ -43,7 +44,7 @@ class Perspective(object):
 
         for test in tests.keys():
             if test not in allowed:
-                raise ValueError("{0} is currently not accepted as a test.".format(str(test)))
+                warnings.warn("{0} might not be accepted as a valid test.".format(str(test)))
             for key in tests[test].keys():
                 if key not in ["scoreType", "scoreThreshhold"]:
                     raise ValueError("{0} is not a valid sub-property for {1}".format(key, test))
