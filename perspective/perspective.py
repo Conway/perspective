@@ -18,6 +18,8 @@ allowed = ["TOXICITY",
 
 class Perspective(object):
 
+    base_url = "https://commentanalyzer.googleapis.com/v1alpha1"
+
     def __init__(self, key):
         self.key = key
 
@@ -62,7 +64,7 @@ class Perspective(object):
                     new_langs.append(language)
 
         # packaging data
-        url = "https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze"
+        url = base_url + "/comments:analyze"
         querystring = {"key": self.key}
         payload_data = {"comment": {"text": text}, "requestedAttributes": {}}
         for test in tests.keys():
