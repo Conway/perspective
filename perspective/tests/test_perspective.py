@@ -39,7 +39,7 @@ class PerspectiveTests(unittest.TestCase):
     def test_comment(self):
         for x in range(10):
             test = random.choice(allowed)
-            comment = self.p.score(generate_text(),tests=test)
+            comment = self.p.score(generate_text(),tests=test, languages=["EN"])
             self.assertTrue(0 <= comment[test].score <= 1)
             for attr in comment[test].spans:
                 self.assertTrue(0 <= attr.score <= 1)
