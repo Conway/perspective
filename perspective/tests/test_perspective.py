@@ -36,14 +36,6 @@ def generate_text():
 class PerspectiveTests(unittest.TestCase):
     p = Perspective(api_key)
 
-    def test_invalid_test(self):
-        with self.assertRaises(ValueError):
-            self.p.score(generate_text(),tests="NOT_A_TEST")
-
-    def test_invalid_test_type(self):
-        with self.assertRaises(ValueError):
-            self.p.score(generate_text(), tests=0)
-
     def test_comment(self):
         for x in range(10):
             test = random.choice(allowed)
