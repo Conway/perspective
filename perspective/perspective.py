@@ -64,7 +64,7 @@ class Perspective(object):
                     new_langs.append(language)
 
         # packaging data
-        url = base_url + "/comments:analyze"
+        url = Perspective.base_url + "/comments:analyze"
         querystring = {"key": self.key}
         payload_data = {"comment": {"text": text}, "requestedAttributes": {}}
         for test in tests.keys():
