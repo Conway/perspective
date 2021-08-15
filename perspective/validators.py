@@ -1,5 +1,5 @@
 from typing import Any
-from ..languages import iso_639
+from languages import iso_639
 from perspective import attribute_types
 
 

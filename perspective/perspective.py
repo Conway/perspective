@@ -1,6 +1,6 @@
 from typing import List, Optional
-from ..validators import Validators
-from ..api_client import APIClient
+from validators import Validators
+from api_client import APIClient
 from perspective import attribute_types
 
 
