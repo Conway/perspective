@@ -1,0 +1,20 @@
+name: PyPI Publisher
+on:
+    release:
+        types: [created]
+jobs:
+    deploy-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-python@v2
+        - name: Install Dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install setuptools wheel twine
+        - name: Build and Publish
+          env:
+              TWINE_USERNAME: __token__
+              TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}\
+          run: |
+            python setup.py sdist bdist_wheel
+            twine upload dist/*

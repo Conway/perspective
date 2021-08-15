@@ -1,52 +1,31 @@
+from perspective import PerspectiveAPI
+import unittest
+import uuid
 import os
 
-# source: http://stackoverflow.com/a/23386287/7090605
-import sys
-sys.path.append(
-    os.path.dirname(
-        os.path.dirname(
-            os.path.abspath(__file__)
-        )
-    )
-)
 
+class PerspectiveAPITest(unittest.TestCase):
+    def setUp(self):
+        self.perspective = PerspectiveAPI(os.environ.get("PERSPECTIVE_API_KEY"))
 
-from perspective import Perspective, allowed
-import random
-import string
-import unittest
+    def test_analyze_comment_bare_minimum(self):
+        result = self.perspective.analyze_comment("you're stupid")
+        self.assertIsNotNone(result)
 
-api_key = os.environ.get("API_KEY")
+    def test_analyze_comment_all_fields(self):
+        result = self.perspective.analyze_comment("you are a dummy",
+                                                  validate=True,
+                                                  comment_type="PLAIN_TEXT",
+                                                  context=[{"text": "why are you this way", "type": "PLAIN_TEXT"}],
+                                                  requested_attributes={"TOXICITY": {}},
+                                                  span_annotations=True,
+                                                  languages=["en"],
+                                                  do_not_store=False,
+                                                  client_token=str(uuid.uuid4()),
+                                                  session_id=str(uuid.uuid4()),
+                                                  community_id="github.com/conway/perspective testing")
+        self.assertIsNotNone(result)
 
-def generate_text():
-    paragraph = []
-    sentences = random.randrange(3,6)+1
-    for x in range(sentences):
-        words = random.randrange(2,10)+1
-        sentence = []
-        for y in range(words):
-            characters = random.randrange(0,10)+1
-            word = ""
-            for z in range(characters):
-                word += random.choice(string.ascii_uppercase + string.ascii_lowercase)
-            sentence.append(word)
-        paragraph.append(" ".join(sentence) + ".")
-    return " ".join(paragraph)
-
-class PerspectiveTests(unittest.TestCase):
-    p = Perspective(api_key)
-
-    def test_comment(self):
-        for x in range(10):
-            test = random.choice(allowed)
-            comment = self.p.score(generate_text(),tests=test, languages=["EN"])
-            self.assertTrue(0 <= comment[test].score <= 1)
-            for attr in comment[test].spans:
-                self.assertTrue(0 <= attr.score <= 1)
-                self.assertTrue(str(attr) in comment.text)
-
-if __name__ == '__main__':
-    #if __package__ is None:
-    #    from os import sys, path
-    #    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
-    unittest.main()
+    def test_score(self):
+        result = self.perspective.score("you look funny")
+        self.assertIsNotNone(result)
