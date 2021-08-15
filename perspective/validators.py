@@ -1,6 +1,6 @@
 from typing import Any
-from languages import iso_639
-import attribute_types
+from .languages import iso_639
+from . import attribute_types
 
 
 class Validators(object):
