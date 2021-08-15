@@ -1,7 +1,7 @@
 from typing import List, Optional
-from .validators import Validators
-from .api_client import APIClient
-from . import attribute_types
+from perspective.validators import Validators
+from perspective.api_client import APIClient
+from perspective import attribute_types
 
 
 class PerspectiveAPI(object):
