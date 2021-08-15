@@ -20,7 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "perspective"},
+    package_dir=setuptools.find_packages(exclude=['tests']),
     packages=['perspective'],
-    python_requires=">=3.6",
+    python_requires=">=3.8",
 )
