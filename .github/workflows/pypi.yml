@@ -4,7 +4,7 @@ on:
         types: [created]
 jobs:
     publish:
-        deploy-on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-python@v2
