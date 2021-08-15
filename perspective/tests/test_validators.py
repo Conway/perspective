@@ -1,4 +1,4 @@
-from validators import Validators
+from perspective.validators import Validators
 import unittest
 
 

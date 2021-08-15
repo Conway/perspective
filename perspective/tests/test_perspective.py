@@ -1,4 +1,4 @@
-from perspective import PerspectiveAPI
+from perspective.perspective import PerspectiveAPI
 import unittest
 import uuid
 import os
