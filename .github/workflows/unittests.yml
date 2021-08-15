@@ -20,4 +20,4 @@ jobs:
             - name: Run unittest
               env:
                   PERSPECTIVE_API_KEY: ${{ secrets.PERSPECTIVE_API_KEY }}
-              run: cd perspective && python -m unittest discover tests/
+              run: python -m unittest discover perspective/tests
