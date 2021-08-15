@@ -1,2 +1,0 @@
-class PerspectiveAPIException(Exception):
-    pass

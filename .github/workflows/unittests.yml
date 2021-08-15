@@ -1,0 +1,23 @@
+name: Python Unit Tests
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-version: ['3.8', '3.9']
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-python@v2
+              with:
+                  python-version: ${{ matrix.python-version }}
+            - name: Run unittest
+              env:
+                  PERSPECTIVE_API_KEY: ${{ secrets.PERSPECTIVE_API_KEY }}
+              run: cd perspective && python -m unittest discover tests/
