@@ -1,4 +1,11 @@
 name: Python Linter
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
 steps:
     - uses: actions/checkout@v2
     - name: Set up Python
