@@ -18,4 +18,6 @@ jobs:
               with:
                   python-version: ${{ matrix.python-version }}
             - name: Run unittest
+              env:
+                  PERSPECTIVE_API_KEY: ${{ secrets.PERSPECTIVE_API_KEY }}
               run: cd perspective && python -m unittest discover tests/
