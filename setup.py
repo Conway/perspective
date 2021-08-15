@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as file:
 
 setuptools.setup(
     name="perspective",
-    version="1.0.0",
+    version="1.0.2",
     author="Jake Conway",
     author_email="jake.h.conway@gmail.com",
     description="A package for interacting with the Perspective API",
