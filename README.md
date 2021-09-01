@@ -12,9 +12,9 @@ A simple example:
 
 ```python
 from perspective import PerspectiveAPI
-p = Perspective("API_KEY")
+p = PerspectiveAPI("API_KEY")
 result = p.score("This is a comment")
-print("Toxicity score: " + result["TOXICITY"])
+print("Toxicity score: ", result["TOXICITY"])
 ```
 
 More complex 
